@@ -59,8 +59,8 @@ def equal_freq():
 
 # equal-width
 def equal_width():
-    print("\n\nEnter width of each Bin:")
-    width = int(input())
+    print("\n\nEnter number of Bins:")
+    bins = int(input())
     f = open(FILEPATH + "equal_width.csv", "w")
     sdata0 = data0[:]
     sdata1 = data1[:]
@@ -71,6 +71,7 @@ def equal_width():
     f.write("Equal-Width Partitioning for Dataset0\nBin-1")
     bin = 1
     # wri = 0
+    width=((max(sdata0)-min(sdata0))/bins)
     last = sdata0[0] + width
     for j in range(0, len(sdata0)):
         if sdata0[j] <= last:
@@ -85,6 +86,7 @@ def equal_width():
     f.write("\n\nEqual-Width Partitioning for Dataset1\nBin-1")
     bin = 1
     # wri = 0
+    width=((max(sdata1)-min(sdata1))/bins)
     last = sdata1[0] + width
     for j in range(0, len(sdata1)):
         if sdata1[j] <= last:
@@ -99,6 +101,7 @@ def equal_width():
     f.write("\n\nEqual-Width Partitioning for Dataset2\nBin-1")
     bin = 1
     # wri = 0
+    width=((max(sdata2)-min(sdata2))/bins)
     last = sdata2[0] + width
     for j in range(0, len(sdata2)):
         if sdata2[j] <= last:
