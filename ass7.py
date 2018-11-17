@@ -64,7 +64,7 @@ def equal_width():
     f = open(FILEPATH + "equal_width.csv", "w")
     sdata0 = data0[:]
     sdata1 = data1[:]
-    sdata1 = data2[:]
+    sdata2 = data2[:]
     sdata0.sort()
     sdata1.sort()
     sdata2.sort()
@@ -122,7 +122,7 @@ def normalization(m0, m1, m2, s0, s1, s2):
     maxi0 = data0[0]
     maxi1 = data1[0]
     maxi2 = data2[0]
-
+    # Finding Maximum Value
     for x in data0:
         if (x < mini0):
             mini0 = x
@@ -139,6 +139,7 @@ def normalization(m0, m1, m2, s0, s1, s2):
         if (x > maxi2):
             maxi2 = x
 
+    # Finding Minimum Value
     for x in range(0, i):
         if (data0[x] < mini0):
             mini0 = data0[x]
@@ -178,7 +179,12 @@ def normalization(m0, m1, m2, s0, s1, s2):
     nmin2 = nmin0
 
     f = open(FILEPATH + "normalized_dataset.csv", "w")
-    f.write("Normalized0,Normalized1,Normalized2,Z-Score0,Z-Score1,Z-Score2\n")
+    # f = open("normalized_dataset.csv", "w")
+    f.write(
+        "Normalized0,Normalized1,Normalized2,Z-Score0,Z-Score1,Z-Score2,Decimal_Scaling0,Decimal_Scaling1,Decimal_Scaling2\n")
+    c0 = data0.count(maxi0)
+    c1 = data1.count(maxi1)
+    c2 = data2.count(maxi2)
     for x in range(0, i):
         nval0 = (((data0[x] - mini0) / (maxi0 - mini0)) * (nmax0 - nmin0)) + nmin0
         nval1 = (((data1[x] - mini1) / (maxi1 - mini1)) * (nmax1 - nmin1)) + nmin1
@@ -186,7 +192,11 @@ def normalization(m0, m1, m2, s0, s1, s2):
         z0 = (data0[x] - m0) / s0
         z1 = (data1[x] - m1) / s1
         z2 = (data2[x] - m2) / s2
-        f.write(str(nval0) + "," + str(nval1) + "," + str(nval2) + "," + str(z0) + "," + str(z1) + "," + str(z2) + "\n")
+        ds0 = data0[x] / (10 ** c0)
+        ds1 = data1[x] / (10 ** c1)
+        ds2 = data2[x] / (10 ** c2)
+        f.write(str(nval0) + "," + str(nval1) + "," + str(nval2) + "," + str(z0) + "," + str(z1) + "," + str(
+            z2) + "," + str(ds0) + "," + str(ds1) + "," + str(ds2) + "\n")
     f.close()
     print("\n\nNormalized values are stored in \"" + f.name + "\" file.")
 
