@@ -5,6 +5,8 @@
 __author__ = "Mohak Chavan"
 __date__ = "$14 Nov, 2018 4:32:41 PM$"
 
+from matplotlib import pyplot as plt
+
 data0 = []
 data1 = []
 data2 = []
@@ -277,3 +279,21 @@ print("\nThird Dataset:\n\t\tMean:   \t\t" + str(mean2) + "\n\t\tMedian: \t\t" +
 normalization(mean0, mean1, mean2, sd0, sd1, sd2)
 equal_width()
 equal_freq()
+
+
+# plt.boxplot(sdata0)
+# plt.title("SDATA0")
+# # plt.savefig(FILEPATH+"sdata0.png")
+# plt.savefig("sdata0.png")
+# plt.close()
+# plt.boxplot(sdata1)
+# plt.title("SDATA1")
+# # plt.savefig(FILEPATH+"sdata1.png")
+# plt.savefig("sdata1.png")
+# plt.close()
+# plt.boxplot(sdata2,notch=True)
+# plt.title("SDATA2")
+# # plt.savefig(FILEPATH+"sdata2.png")
+# plt.savefig("sdata2.png")
+
+
