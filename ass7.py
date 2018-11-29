@@ -18,6 +18,7 @@ FILEPATH = "E:\\Google Drive\\PICT\\LP - 1\\Assignment 7\\New folder\\"
 def equal_freq():
     print("\n\nEnter frequency for each Bin:")
     freq = int(input())
+    # freq = 30
     f = open(FILEPATH + "equal_freq.csv", "w")
     f.write("Equal-Frequency Partitioning for Dataset0\nBin-1")
     x = 0
@@ -63,6 +64,7 @@ def equal_freq():
 def equal_width():
     print("\n\nEnter number of Bins:")
     bins = int(input())
+    # bins = 30
     f = open(FILEPATH + "equal_width.csv", "w")
     sdata0 = data0[:]
     sdata1 = data1[:]
@@ -73,7 +75,7 @@ def equal_width():
     f.write("Equal-Width Partitioning for Dataset0\nBin-1")
     bin = 1
     # wri = 0
-    width=((max(sdata0)-min(sdata0))/bins)
+    width = ((max(sdata0) - min(sdata0)) / bins)
     last = sdata0[0] + width
     for j in range(0, len(sdata0)):
         if sdata0[j] <= last:
@@ -88,7 +90,7 @@ def equal_width():
     f.write("\n\nEqual-Width Partitioning for Dataset1\nBin-1")
     bin = 1
     # wri = 0
-    width=((max(sdata1)-min(sdata1))/bins)
+    width = ((max(sdata1) - min(sdata1)) / bins)
     last = sdata1[0] + width
     for j in range(0, len(sdata1)):
         if sdata1[j] <= last:
@@ -103,7 +105,7 @@ def equal_width():
     f.write("\n\nEqual-Width Partitioning for Dataset2\nBin-1")
     bin = 1
     # wri = 0
-    width=((max(sdata2)-min(sdata2))/bins)
+    width = ((max(sdata2) - min(sdata2)) / bins)
     last = sdata2[0] + width
     for j in range(0, len(sdata2)):
         if sdata2[j] <= last:
@@ -280,20 +282,43 @@ normalization(mean0, mean1, mean2, sd0, sd1, sd2)
 equal_width()
 equal_freq()
 
-
-# plt.boxplot(sdata0)
-# plt.title("SDATA0")
-# # plt.savefig(FILEPATH+"sdata0.png")
-# plt.savefig("sdata0.png")
-# plt.close()
-# plt.boxplot(sdata1)
-# plt.title("SDATA1")
-# # plt.savefig(FILEPATH+"sdata1.png")
-# plt.savefig("sdata1.png")
-# plt.close()
-# plt.boxplot(sdata2,notch=True)
-# plt.title("SDATA2")
-# # plt.savefig(FILEPATH+"sdata2.png")
-# plt.savefig("sdata2.png")
-
-
+plt.boxplot(data0)
+plt.title("Boxplot for Dataset0")
+plt.xlabel("Dataset0")
+plt.savefig(FILEPATH+"boxplot_data0.png")
+plt.savefig("boxplot_data0.png")
+plt.close()
+plt.boxplot(data1)
+plt.title("Boxplot for Dataset1")
+plt.xlabel("Dataset1")
+plt.savefig(FILEPATH+"boxplot_data1.png")
+plt.savefig("boxplot_data1.png")
+plt.close()
+plt.boxplot(data2)
+plt.title("Boxplot for Dataset2")
+plt.xlabel("Dataset2")
+plt.savefig(FILEPATH+"boxplot_data2.png")
+plt.savefig("boxplot_data2.png")
+plt.close()
+plt.scatter(data0, data1)
+plt.title("Scatterplot for Dataset0_1")
+plt.xlabel("Dataset0")
+plt.ylabel("Dataset1")
+plt.savefig(FILEPATH+"scatter_data0_1.png")
+plt.savefig("scatter_data0_1.png")
+plt.close()
+plt.scatter(data1, data2)
+plt.title("Scatterplot for Dataset1_2")
+plt.xlabel("Dataset1")
+plt.ylabel("Dataset2")
+plt.savefig(FILEPATH+"scatter_data1_2.png")
+plt.savefig("scatter_data1_2.png")
+plt.close()
+plt.scatter(data2, data0)
+plt.title("Scatterplot for Dataset2_0")
+plt.xlabel("Dataset2")
+plt.ylabel("Dataset0")
+plt.savefig(FILEPATH+"scatter_data2_0.png")
+plt.savefig("scatter_data2_0.png")
+plt.close()
+print("\n\nBox-plot and Scatter-plot images are saved.")
