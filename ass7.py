@@ -6,6 +6,7 @@ __author__ = "Mohak Chavan"
 __date__ = "$14 Nov, 2018 4:32:41 PM$"
 
 from matplotlib import pyplot as plt
+from array import *
 
 data0 = []
 data1 = []
@@ -281,7 +282,6 @@ print("\nThird Dataset:\n\t\tMean:   \t\t" + str(mean2) + "\n\t\tMedian: \t\t" +
 normalization(mean0, mean1, mean2, sd0, sd1, sd2)
 equal_width()
 equal_freq()
-
 plt.boxplot(data0)
 plt.title("Boxplot for Dataset0")
 plt.xlabel("Dataset0")
@@ -300,25 +300,28 @@ plt.xlabel("Dataset2")
 plt.savefig(FILEPATH+"boxplot_data2.png")
 plt.savefig("boxplot_data2.png")
 plt.close()
-plt.scatter(data0, data1)
-plt.title("Scatterplot for Dataset0_1")
+y=[j/2 for j in range (0,len(set(data0)))]
+plt.scatter(list(set(data0)), y)
+plt.title("Scatterplot for Dataset0")
 plt.xlabel("Dataset0")
-plt.ylabel("Dataset1")
-plt.savefig(FILEPATH+"scatter_data0_1.png")
-plt.savefig("scatter_data0_1.png")
+#plt.ylabel("Dataset1")
+plt.savefig(FILEPATH+"scatter_data0.png")
+plt.savefig("scatter_data0.png")
 plt.close()
-plt.scatter(data1, data2)
-plt.title("Scatterplot for Dataset1_2")
+y=[j/2 for j in range (0,len(set(data1)))]
+plt.scatter(list(set(data1)), y)
+plt.title("Scatterplot for Dataset1")
 plt.xlabel("Dataset1")
-plt.ylabel("Dataset2")
-plt.savefig(FILEPATH+"scatter_data1_2.png")
-plt.savefig("scatter_data1_2.png")
+#plt.ylabel("Dataset2")
+plt.savefig(FILEPATH+"scatter_data1.png")
+plt.savefig("scatter_data1.png")
 plt.close()
-plt.scatter(data2, data0)
-plt.title("Scatterplot for Dataset2_0")
+y=[j/2 for j in range (0,len(set(data2)))]
+plt.scatter(list(set(data2)), y)
+plt.title("Scatterplot for Dataset2")
 plt.xlabel("Dataset2")
-plt.ylabel("Dataset0")
-plt.savefig(FILEPATH+"scatter_data2_0.png")
-plt.savefig("scatter_data2_0.png")
+#plt.ylabel("Dataset0")
+plt.savefig(FILEPATH+"scatter_data2.png")
+plt.savefig("scatter_data2.png")
 plt.close()
 print("\n\nBox-plot and Scatter-plot images are saved.")
